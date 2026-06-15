@@ -3,13 +3,14 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
+  display: flex;
+  justify-content: center;
   background: var(--bg-card);
   padding: 4rem;
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--border-color);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .infoSide h3 {

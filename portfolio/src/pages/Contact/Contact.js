@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import styles from './Contact.module.css';
 
 const GithubIcon = ({ size }) => (
@@ -36,22 +36,6 @@ const ContactInfo = ({ icon, title, value, link }) => {
 };
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you for your message! (Form submission placeholder)');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
 
   return (
     <section className={`${styles.contact} container section-padding`}>
@@ -103,69 +87,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          className={styles.formSide}
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <div className={styles.formRow}>
-              <div className={styles.inputGroup}>
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className={styles.inputGroup}>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Your Email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            <div className={styles.inputGroup}>
-              <label htmlFor="subject">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="Message Subject"
-                required
-                value={formData.subject}
-                onChange={handleChange}
-              />
-            </div>
-            <div className={styles.inputGroup}>
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="Write your message here..."
-                required
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            <button type="submit" className={styles.submitBtn}>
-              Send Message <Send size={18} />
-            </button>
-          </form>
-        </motion.div>
+
       </div>
     </section>
   );
